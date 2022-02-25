@@ -5,6 +5,8 @@ using System.Security.Cryptography;
 
 class FileEncryptor
 {
+    const int KEY_BYTE_LENGTH = 16; // 16 bytes == 128 bits
+
     static void Main(string[] args)
     {
         if (args.Length < 2)
@@ -74,14 +76,14 @@ class FileEncryptor
     static byte[] _generateRandomSessionKey()
     {
         RNGCryptoServiceProvider rng = new RNGCryptoServiceProvider();
-        byte[] data = new byte[16];
+        byte[] data = new byte[KEY_BYTE_LENGTH];
         rng.GetBytes(data); // Fill buffer.
         return data;
     }
 
     static void _pump2(byte[] sessionKey, Stream output)
     {
-        output.Write(sessionKey, 0, 16);
+        output.Write(sessionKey, 0, KEY_BYTE_LENGTH);
     }
 
     static void _encrypt2(string filename)
@@ -134,8 +136,8 @@ class FileEncryptor
     static byte[] _getKey(MemoryStream ms)
     {
         ms.Seek(0,SeekOrigin.Begin);
-        byte[] b = new byte[16];
-        int x = ms.Read(b,0,16);
+        byte[] b = new byte[KEY_BYTE_LENGTH];
+        int x = ms.Read(b,0,KEY_BYTE_LENGTH);
         return b;
     }
 
@@ -145,7 +147,7 @@ class FileEncryptor
         FileStream rawInput = new FileStream(filename, FileMode.Open, FileAccess.Read, FileShare.Read);
         FileStream rawOutput = new FileStream(tempfile, FileMode.Open, FileAccess.Write, FileShare.None);
         FileStream sessionKeyInput = new FileStream(filename+"_sk", FileMode.Open, FileAccess.Read, FileShare.Read);
-        MemoryStream sessionKeyOuput = new MemoryStream(16);
+        MemoryStream sessionKeyOuput = new MemoryStream(KEY_BYTE_LENGTH);
 
         SymmetricAlgorithm alg = new AesManaged();
         alg.Mode = CipherMode.ECB;
@@ -184,7 +186,7 @@ class FileEncryptor
         byte[] shaHash = SHA1.Create().ComputeHash(stringData);
 
         // take the first 16 bytes for use as a 128 bit Rijndahl key
-        byte[] key = new byte[16];
+        byte[] key = new byte[KEY_BYTE_LENGTH];
         Array.Copy(shaHash, 0, key, 0, key.Length);
 
         return key;
