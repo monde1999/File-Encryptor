@@ -1,0 +1,21 @@
+Microsoft Visual Studio Solution File, Format Version 8.00
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FileEncryptor", "FileEncryptor.csproj", "{76045158-7FAA-4E95-96D2-BC7973E84492}"
+	ProjectSection(ProjectDependencies) = postProject
+	EndProjectSection
+EndProject
+Global
+	GlobalSection(SolutionConfiguration) = preSolution
+		Debug = Debug
+		Release = Release
+	EndGlobalSection
+	GlobalSection(ProjectConfiguration) = postSolution
+		{76045158-7FAA-4E95-96D2-BC7973E84492}.Debug.ActiveCfg = Debug|.NET
+		{76045158-7FAA-4E95-96D2-BC7973E84492}.Debug.Build.0 = Debug|.NET
+		{76045158-7FAA-4E95-96D2-BC7973E84492}.Release.ActiveCfg = Release|.NET
+		{76045158-7FAA-4E95-96D2-BC7973E84492}.Release.Build.0 = Release|.NET
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+	EndGlobalSection
+	GlobalSection(ExtensibilityAddIns) = postSolution
+	EndGlobalSection
+EndGlobal

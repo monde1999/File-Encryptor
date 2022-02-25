@@ -1,0 +1,6 @@
+C:\Users\Mary Apple Desierto\Desktop\File Encryptor 1\bin\Debug\FileEncryptor.exe
+C:\Users\Mary Apple Desierto\Desktop\File Encryptor 1\bin\Debug\FileEncryptor.pdb
+C:\Users\Mary Apple Desierto\Desktop\File Encryptor 1\obj\Debug\FileEncryptor.csproj.AssemblyReference.cache
+C:\Users\Mary Apple Desierto\Desktop\File Encryptor 1\obj\Debug\FileEncryptor.csproj.CoreCompileInputs.cache
+C:\Users\Mary Apple Desierto\Desktop\File Encryptor 1\obj\Debug\FileEncryptor.exe
+C:\Users\Mary Apple Desierto\Desktop\File Encryptor 1\obj\Debug\FileEncryptor.pdb
